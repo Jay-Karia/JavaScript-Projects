@@ -1,6 +1,7 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .header {
@@ -20,6 +21,7 @@
     display: grid;
     grid-template-columns: repeat(3, 10vw);
     grid-template-rows: repeat(3, 10vw);
+    margin-right: 50px;
     
 }
 
@@ -39,11 +41,45 @@
 }
 
 .gameInfo {
-    margin-left: 80px;
+    width: 20vw;
 }
 
 .players {
     margin-top: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.9vw;
+}
+
+.players h2 {
+    margin: 15px;
+}
+
+.image img {
+    /* width: 10vw; */
+    width: 0vw;
+    margin-top: 70px;
+}
+
+.reset {
+    width: 5vw;
+    height: 1.5vw;
+    margin-left: 15px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 2px solid black;
+    cursor: pointer;
+    font-size: 0.9vw;
+    background-color: rgb(236, 227, 255);
+}
+
+.reset:hover {
+    background-color: rgb(222, 211, 247);
+}
+
+.info {
+    margin-left: 15px;
+    margin-top: 45px;
     font-size: 1vw;
+    /* background-color: rgb(255, 219, 219); */
+    /* border-radius: 2px;
+    padding: 5px; */
 }
