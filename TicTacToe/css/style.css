@@ -19,10 +19,10 @@
 
 .gameBoard {
     display: grid;
+    /* background-color: yellow; */
     grid-template-columns: repeat(3, 10vw);
     grid-template-rows: repeat(3, 10vw);
     margin-right: 50px;
-    
 }
 
 .boxtext {
@@ -41,12 +41,13 @@
 }
 
 .gameInfo {
-    width: 20vw;
+    /* background-color: blue; */
+    width: 200px;
 }
 
 .players {
     margin-top: 20px;
-    font-size: 0.9vw;
+    font-size: 13px;
 }
 
 .players h2 {
@@ -56,18 +57,18 @@
 .image img {
     /* width: 10vw; */
     width: 0vw;
-    margin-top: 70px;
+    margin-top: 30px;
 }
 
 .reset {
-    width: 5vw;
-    height: 1.5vw;
+    width: 80px;
+    height: 20px;
     margin-left: 15px;
     margin-top: 5px;
     border-radius: 5px;
     border: 2px solid black;
     cursor: pointer;
-    font-size: 0.9vw;
+    font-size:13px;
     background-color: rgb(236, 227, 255);
 }
 
@@ -78,7 +79,7 @@
 .info {
     margin-left: 15px;
     margin-top: 45px;
-    font-size: 1vw;
+    font-size: 15px;
     /* background-color: rgb(255, 219, 219); */
     /* border-radius: 2px;
     padding: 5px; */
