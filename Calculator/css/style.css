@@ -1,0 +1,53 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-image: url("/images.jpg");
+  background-size: 100% 100%;
+}
+
+.container {
+  background-color: darkcyan;
+  border-radius: 20px;
+  margin: auto;
+  max-width: 17vw;
+  max-height: 80vh;
+  display: flex;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.btn {
+  padding: 20px;
+  border-radius: 50px;
+  margin-right: 10px;
+  margin-bottom: 15px;
+  max-width: 50px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.input {
+  margin: 20px;
+  margin-left: 15px;
+}
+
+.txt-field {
+  height: 40px;
+  width: 245px;
+  font-size: 25px;
+}
+
+.color {
+  background-color: aquamarine;
+}
+
+h1 {
+    color: white;
+}
