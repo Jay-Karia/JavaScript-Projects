@@ -24,8 +24,8 @@
 }
 
 .battingContainer {
-    width: 350px;
-    height: 600px;
+    width: 400px;
+    height: 800px;
     /* background-color: purple; */
     margin-right: 20px;
     margin-top: 50px;
@@ -92,15 +92,31 @@
     margin-top: 20px;
 }
 
-.reset {
-    width: 190px;
-    height: 50px;
+.result {
+    /* width: 190px; */
+    /* height: 50px; */
+    width: 0;
+    height: 0;
     background-color: rgb(118, 255, 118);
     border-radius: 5px;
-    font-size: 30px;
+    /* font-size: 30px; */
+    font-size: 0px;
     border: 2px solid black;
 }
 
 .sr {
     width: 100px;
+}
+
+.btn {
+    width: 100px;
+    height: 35px;
+    font-size: 20px;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.btn:hover {
+    background-color: rgb(255, 211, 255);
+    box-shadow: 3px 3px 3px 3px rgb(255, 139, 255);
 }
