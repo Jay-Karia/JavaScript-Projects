@@ -4,11 +4,11 @@ let battingBallsPlayed = document.querySelector('.balls').value;
 let battingRuns = document.querySelector('.runs').value;
 let battingFours = document.querySelector('.fours').value;
 let battingSixes = document.querySelector('.sixes').value;
-let strikeRate = document.querySelector('.sr').value;
+let strikeRate = document.querySelector('.sr');
 
 battingBallsPlayed =  Number(battingBallsPlayed, 10);
 battingRuns =  Number(battingRuns, 10);
-strikeRate =  Number(strikeRate, 10);
+strikeRate.value =  Number(strikeRate, 1000);
 battingFours = Number(battingFours, 10)
 battingSixes = Number(battingSixes, 10)
 
@@ -18,6 +18,7 @@ let sixTextBox = document.querySelector('.sixes');
 let BallTextBox = document.querySelector('.balls');
 
 let clear = document.querySelector('.clear');
+let calc = document.querySelector('.calc');
 
 let RunTextBox = document.querySelector('.runs');
 let ballOneTwo = document.querySelector('.ballOneTwo');
@@ -80,4 +81,9 @@ clear.addEventListener('click', ()=> {
     sixTextBox.value = "";
     battingSixes = 0;
     strikeRate.value = "";
+});
+
+calc.addEventListener('click', ()=> {
+    strikeRate.value = battingRuns/battingBallsPlayed*100;
+    console.log(strikeRate);
 });
