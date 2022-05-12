@@ -16,12 +16,12 @@
         <div class="battingContainer">
             <h1>Batting Stats</h1>
             <div class="heading">
-                <h2>Player Name: </h2> <input type="text", class="textbox">
-                <h2>Balls Played: </h2> <input type="text", class="textbox small"><button class="addition">+1</button>
-                <h2>Runs: </h2> <input type="text", class="textbox small"><button class="addition">+1</button><button class="addition">+2</button><button class="addition">+4</button><button class="addition">+6</button>
-                <h2>Strike Rate: </h2><input type="text", class="textbox small sr">
-                <h2>4s: </h2> <input type="text", class="textbox small"><button class="addition">+1</button>
-                <h2>6s: </h2> <input type="text", class="textbox small"><button class="addition">+1</button>
+                <h2>Player Name: </h2> <input type="text", class="textbox playerName">
+                <h2>Balls Played: </h2> <input type="text", class="textbox small balls" readonly><button class="addition ballOne">+1</button>
+                <h2>Runs: </h2> <input type="text", class="textbox small runs" readonly><button class="addition ballOneTwo">+1</button><button class="addition ballTwo">+2</button><button class="addition ballFour">+4</button><button class="addition ballSix">+6</button>
+                <h2>Strike Rate: </h2><input type="text", class="textbox small sr" readonly>
+                <h2>4s: </h2> <input type="text", class="textbox small fours" readonly><button class="addition ballOneThree">+1</button>
+                <h2>6s: </h2> <input type="text", class="textbox small sixes" readonly><button class="addition ballOneFour">+1</button>
                 <br><br>
                 <button class="clear btn">Clear</button>
                 <button class="calc btn">Calculate</button>
@@ -36,8 +36,27 @@
         </div>
 
         <div class="bowlingContainer">
-
+            <h1>Bowling Stats</h1>
+            <div class="heading">
+                <h2>Player Name: </h2> <input type="text", class="textbox bolwPlayerName">
+                <h2>Balls: </h2> <input type="text", class="textbox small bowlBalls" readonly><button class="addition">+1</button>
+                <h2>Runs: </h2> <input type="text", class="textbox small bowlRuns" readonly><button class="addition">+1</button><button class="addition">+2</button><button class="addition">+4</button><button class="addition">+6</button>
+                <h2>Economy: </h2><input type="text", class="textbox small sr economy" readonly>
+                <h2>Wickets: </h2><input type="text", class="textbox small wickets" readonly><button class="addition">+1</button>
+                <h2>Hat-Trick: </h2> <input type="text", class="textbox small hatrick" readonly><button class="addition">+1</button>
+                <br><br>
+                <button class="bowlClear btn">Clear</button>
+                <button class="bowlCalc btn">Calculate</button>
+                <button class="bowlSave btn">Save Data</button>
+                <h2 class="performance">
+                    Performance: 
+                </h2>
+                <p class="bowlResult">
+                    Excellent
+                </p>
+            </div>
         </div>
     </div>
 </body>
+<script src="./script.js"></script>
 </html>
