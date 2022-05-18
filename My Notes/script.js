@@ -1,187 +1,97 @@
-* {
-    margin: 0;
-    padding: 0;
-    font-family: 'Anton', sans-serif;
-}
+// Other Variables
+let clickNum = 0;
+let clickNum2 = 0;
+let numClick = 0;
 
-/* Navigation Bar */
+// Text Boxes
+let noteTitle = document.getElementsByClassName('noteTitle')[0];
+let description = document.querySelector('#description');
+let date = document.querySelector('#date');
+let publisher = document.querySelector('.publisher');
 
-.header {
-    background-color: black;
-    color: white;
-    display: flex;
-    height: 50px;
-    padding-left: 30px;
-}
+// Buttons
+let clearTitle = document.querySelector('.clearTitle');
+let clearDescription = document.querySelector('.clearDescription');
+let clearAll = document.querySelector('.clearAll');
+let bullet = document.querySelector('.bullet');
+let arrow = document.querySelector('.arrow');
+let ordered = document.querySelector('.ordered');
+let clearDate = document.querySelector('.clearDate');
+let clearPub = document.querySelector('.clearPub');
 
-.special {
-    font-size: 35px;
-}
+// Sounds
+let clickSound = new Audio('sounds/click.mp3');
+let otherClickSound = new Audio('sounds/otherClick.mp3');
 
-.small {
-    margin-top: 15px;
-    margin-left: 10px;
-    font-size: 20px;
-    color: rgb(238, 238, 238);
-}
+// Functions
+clearTitle.addEventListener('click', ()=> {
+    noteTitle.value = "";
+    clickSound.play();
+});
 
-/* Container */
+clearDescription.addEventListener('click', ()=> {
+    description.value = "";
+    clickSound.play();
+    clickNum = 0;
+    clickNum2 = 0;
+    numClick = 0;
+    ordered.innerHTML = 1;
+});
 
-.container {
-    background-color: rgb(244, 254, 255);
-    width: 100vw;
-    height: 600px;
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    border-radius: 12px;
-    border: 1px solid black;
-    flex-wrap: wrap;
-}
+clearAll.addEventListener('click', ()=> {
+    otherClickSound.play();
+    noteTitle.value = "";
+    description.value = "";
+    date.value = "";
+    publisher.value = "";
+    clickNum = 0;
+    clickNum2 = 0;
+    numClick = 0;
+    ordered.innerHTML = 1;
+});
 
-.addNotes {
-    background-color: rgb(210, 229, 255);
-    width: 90vw;
-    height: 550px;
-    margin-top: 20px;
-    border-radius: 9px;
-    box-shadow: 5px 5px 5px 5px rgb(125, 148, 156);
-}
+bullet.addEventListener('click', ()=> {
+    otherClickSound.play();
+    clickNum += 1;
+    clickNum2 += 1
+    if (clickNum == 1 && clickNum2 == 1) {
+        description.value += "•";
+    } else {
+        description.value += "\n•";
+    }
+});
 
-.noteTitle {
-    height: 50px;
-    width: 390px;
-    margin-left: 50px;
-    margin-top: 10px;
-    border-radius: 5px;
-    font-size: 25px;
-    padding-left: 10px;
-    font-family: 'Arial', sans-serif;
-    /* background-color: rgb(230, 230, 230); */
-}
+arrow.addEventListener('click', ()=> {
+    otherClickSound.play();
+    clickNum2 += 1;
+    clickNum += 1;
+    if (clickNum2 == 1 && clickNum == 1) {
+        description.value += "‣";
+    } else {
+        description.value += "\n‣";
+    }
+});
 
-.noteTitle::placeholder {
-    font-size: 25px;
-    padding-left: 10px;
-    font-family: 'Arial', sans-serif;
-    /* margin-bottom: 40px; */
-}
+ordered.addEventListener('click', ()=> {
+    otherClickSound.play();
+    clickNum+=1;
+    clickNum2 +=1;
+    numClick +=1;
+    if (numClick == 1 && clickNum2 == 1 && clickNum == 1) {
+        ordered.innerHTML = Number(ordered.innerHTML, 10);
+        description.value += ordered.innerHTML;
+    } else {
+        ordered.innerHTML = Number(ordered.innerHTML, 10)+1;
+        description.value += "\n" + ordered.innerHTML;
+    }
+});
 
-.noteTitle:hover {
-    box-shadow: 3px 3px 2px 2px rgb(175, 175, 175);
-}
+clearDate.addEventListener('click', ()=> {
+    otherClickSound.play();
+    date.value = "";
+});
 
-#description {
-    width: 80vw;
-    height: 250px;
-    padding-top: 10px;
-    resize: none;
-}
-
-.addNotes h1 {
-    margin-top: 10px;
-    margin-left: 50px;
-    background-color: rgb(212, 212, 255);
-    width: 15vw;
-    border-radius: 3px;
-    padding: 4px;
-    padding-left: 10px;
-    box-shadow: 3px 3px 2px 2px rgb(127, 112, 139);
-    margin-bottom: 20px;
-    font-family: 'Koulen', cursive;
-}
-
-.btn {
-    transition: ease-out 0.1s;
-    margin-left: 20px;
-    height: 40px;
-    width: 40px;
-    font-size: 20px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-}
-
-.btn:hover {
-    /* background-color: rgb(244, 255, 195); */
-    width: 45px;
-    height: 45px;
-    transition: ease-in 0.1s;
-    /* box-shadow: 1px 1px 1px 1px rgb(228, 255, 73); */
-}
-.btnPannel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.buttons {
-    /* background-color: rgb(236, 241, 255); */
-    width: 70vw;
-    height: 65px;
-    margin-top: 10px;
-    border-radius: 9px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* border: 1px greenyellow solid; */
-}
-
-
-.buttons button {
-    transition: ease-in 0.1s;
-    width: 100px;
-    height: 50px;
-    margin-left: 60px;
-    margin-top: 10px;
-    border-radius: 10px;
-    font-size: 15px;
-}
-
-.buttons button:hover {
-    background-color: rgb(214, 217, 255);
-    box-shadow: 1px 1px 1px 1px rgb(76, 73, 255);
-    width: 110px;
-    height: 60px;
-    transition: ease-out 0.1s;
-}
-
-.descriptionContainer {
-    display: flex;
-    align-items: center;
-}
-
-.sidePannel {
-    width: 100px;
-    height: 250px;
-    display: flex;
-    align-items: center;
-    justify-content : center;
-    flex-wrap: wrap;
-    padding-right: 20px;
-}
-
-#date {
-    font-size: 30px;
-}
-
-/* .noteCard {
-    margin-top: 80px;
-    margin-left: 20px;
-    background-color: rgb(208, 158, 255);
-    width: 400px;
-    height: 350px;
-    border-radius: 9px;
-    box-shadow: 2px 2px 2px 2px rgb(69, 0, 180);
-}
-
-.noteCard h1 {
-    margin-left: 120px;
-    font-size: 40px;
-}
-
-.noteCard p {
-    margin-left:25px;
-    font-size: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-    /* width: 330px; */
-/* } */
+clearPub.addEventListener('click', ()=> {
+    otherClickSound.play();
+    publisher.value = "";
+});
