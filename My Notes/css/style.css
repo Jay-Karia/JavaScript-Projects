@@ -30,7 +30,7 @@
 .container {
     background-color: rgb(244, 254, 255);
     width: 100vw;
-    height: 1000px;
+    height: 600px;
     margin-top: 20px;
     display: flex;
     justify-content: center;
@@ -163,3 +163,25 @@
 #date {
     font-size: 30px;
 }
+
+/* .noteCard {
+    margin-top: 80px;
+    margin-left: 20px;
+    background-color: rgb(208, 158, 255);
+    width: 400px;
+    height: 350px;
+    border-radius: 9px;
+    box-shadow: 2px 2px 2px 2px rgb(69, 0, 180);
+}
+
+.noteCard h1 {
+    margin-left: 120px;
+    font-size: 40px;
+}
+
+.noteCard p {
+    margin-left:25px;
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    /* width: 330px; */
+/* } */
