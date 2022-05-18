@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Notes</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="header">
+        <p class="special">My Notes</p>
+        <p class="small"> - by Jay</p>
+    </div>
+    <div class="container">
+        <div class="addNotes">
+            <h1>Add a New Note</h1>
+            <input type="text" class="noteTitle" placeholder="Add a Note Title"><button class="clearTitle btn">C</button>
+            <input type="date" id="date" max="2050-12-31" class="noteTitle"><button class="clearDate btn">C</button>
+            <input type="text" placeholder="Publisher Name" class="noteTitle publisher"><button class="btn clearPub">C</button>
+            <br>
+            <div class="descriptionContainer">
+                <textarea name="note" id="description" cols="30" rows="10" class="noteTitle" placeholder="Add your Note Here"></textarea>
+                <div class="sidePannel">
+                    <button class="clearDescription btn">C</button>
+                    <button class="bullet btn">•</button>
+                    <button class="arrow btn">‣</button>
+                    <button class="ordered btn">1</button>
+                </div>
+            </div>
+            <div class="btnPannel">
+                <div class="buttons">
+                    <button class="clearAll">Clear All</button>
+                    <button class="save">Save Note</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
