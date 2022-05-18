@@ -42,7 +42,7 @@
 .bowlingContainer {
     width: 400px;
     height: 800px;
-    /* background-color: red; */
+    /* background-color: yellow; */
     margin-left: 120px;
     margin-top: 50px;
     border-radius: 9px;
@@ -58,6 +58,7 @@
     width: 211px;
     padding: 11px;
     border: 2px solid black;
+    margin-left: 10px;
 }
 
 .heading {
@@ -150,4 +151,36 @@
     /* font-size: 30px; */
     font-size: 0px;
     border: 2px solid black;
+}
+
+.saveData {
+    /* background-color: rgb(146, 255, 250); */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.saveData input {
+    width: 90vw;
+    height: 90vh;
+}
+
+.clearSaveData {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.clearData {
+    width: 100px;
+    height: 50px;
+    margin-bottom: 10px;
+    border-radius: 9px;
+    font-size: 20px;
+}
+
+#savedData {
+    margin-bottom: 650px;
 }
