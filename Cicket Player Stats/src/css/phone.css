@@ -1,0 +1,59 @@
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+.bowlingContainer {
+    font-size:4vw;
+    /* width: 90vw; */
+    margin-top: 150px;
+    margin-left: 10px;
+}
+
+.battingContainer {
+    font-size: 4vw;
+    /* width: 90vw; */
+    margin-left: 10px;
+}
+
+.battingContainer h1 {
+    font-size: 8vw;
+}
+
+.bowlingContainer h1 {
+    font-size: 8vw;
+}
+
+.textbox {
+    width: 15vw;
+}
+
+.header {
+    font-size: 7vw;
+}
+
+.addition {
+    width: 6vw;
+}
+
+.playerName {
+    width: 35vw;
+}
+
+.bolwPlayerName {
+    width: 20vw;
+}
+
+
+.clearSaveData {
+    margin-top: 1200px;
+}
+
+.clearData {
+  margin-top : 0px;
+}
