@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link href="css/phone.css" media="screen and (max-width: 690px)" rel="stylesheet" type="text/css" />
     <title>Cricket Player Stats</title>
 </head>
 <body>
@@ -16,15 +17,16 @@
         <div class="battingContainer">
             <h1>Batting Stats</h1>
             <div class="heading">
-                <h2>Player Name: </h2> <input type="text", class="textbox playerName">
+                <h2>Player Name: </h2> <input type="text", class="textbox name">
                 <h2>Balls Played: </h2> <input type="text", class="textbox small balls" readonly><button class="addition ballOne">+1</button>
                 <h2>Runs: </h2> <input type="text", class="textbox small runs" readonly><button class="addition ballOneTwo">+1</button><button class="addition ballTwo">+2</button><button class="addition ballFour">+4</button><button class="addition ballSix">+6</button>
                 <h2>Strike Rate: </h2><input type="text", class="textbox small strike sr" readonly>
-                <h2>4s: </h2> <input type="text", class="textbox small fours" readonly><button class="addition ballOneThree">+1</button>
-                <h2>6s: </h2> <input type="text", class="textbox small sixes" readonly><button class="addition ballOneFour">+1</button>
+                <h2>4s: </h2> <input type="text", class="textbox small fours" readonly>
+                <h2>6s: </h2> <input type="text", class="textbox small sixes" readonly>
                 <br><br>
                 <button class="clear btn">Clear</button>
                 <button class="calc btn">Calculate</button>
+                <button class="save btn">Save</button>
                 <h2 class="performance">
                     Performance: 
                 </h2>
@@ -46,6 +48,7 @@
                 <br><br>
                 <button class="bowlClear btn">Clear</button>
                 <button class="bowlCalc btn">Calculate</button>
+                <button class="ballSave btn">Save</button>
                 <h2 class="performance">
                     Performance: 
                 </h2>
@@ -54,6 +57,15 @@
                 </p>
             </div>
         </div>
+
+    </div>
+    <div class="clearSaveData">
+        <button class="clearData btn">
+            Clear All
+        </button>
+    </div>
+    <div class="saveData">
+        <textarea name="saved data" id="savedData" cols="30" rows="10"></textarea>
     </div>
 </body>
 <script src="./script.js"></script>
