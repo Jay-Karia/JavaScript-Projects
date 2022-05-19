@@ -221,3 +221,8 @@
     background-color: rgb(214, 217, 255);
     box-shadow: 1px 1px 1px 1px rgb(76, 73, 255);
 }
+
+.allNotes {
+    display: flex;
+    align-items: center;
+}
