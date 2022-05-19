@@ -28,13 +28,13 @@ let otherClickSound = new Audio("sounds/otherClick.mp3");
 
 // Functions
 clearTitle.addEventListener("click", () => {
-  noteTitle.value = "";
   clickSound.play();
+  noteTitle.value = "";
 });
 
 clearDescription.addEventListener("click", () => {
-  description.value = "";
   clickSound.play();
+  description.value = "";
   clickNum = 0;
   clickNum2 = 0;
   numClick = 0;
@@ -90,26 +90,64 @@ ordered.addEventListener("click", () => {
 });
 
 clearDate.addEventListener("click", () => {
-  otherClickSound.play();
+  clickSound.play();
   date.value = "";
 });
 
 clearPub.addEventListener("click", () => {
-  otherClickSound.play();
+  clickSound.play();
   publisher.value = "";
 });
 
 saveNote.addEventListener("click", function(e) {
+  
   otherClickSound.play();
-  let addTxt = document.getElementById("description");
   let notes = localStorage.getItem("notes");
   if (notes == null) {
-      notesObj = [];
+    notesObj = [];
   } else {
     notesObj = JSON.parse(notes);
   }
-  notesObj.push(addTxt.value);
+  notesObj.push(description.value);
   localStorage.setItem("notes", JSON.stringify(notesObj));
-  addTxt.value = "";
+  description.value = "";
+  publisher.value = "";
+  date.value = "";
+  noteTitle.value = "";
+//   console.log(notesObj);
   showNotes();
 });
+
+// Function to show elements from localStorage
+function showNotes() {
+  
+  let notes = localStorage.getItem("notes");
+  if (notes == null) {
+    notesObj = [];
+  } else {
+    notesObj = JSON.parse(notes);
+  }
+  let html = "";
+  notesObj.forEach(function(index) {
+    let title = document.querySelector(".noteTitle");
+    let des = document.querySelector("#description");
+    let da = document.querySelector("#date");
+    let pub = document.querySelector(".publisher");
+    console.log(pub.value);
+      html += `
+        <div class="savedNote">
+        <div class="savedNoteTitle" align="center">${title.value}</div>
+        <textarea name="description" id="savedNoteDescription" cols="30" rows="10" readonly>${des.value}</textarea>
+        <div class="savedNotePublisher"><strong>By: </strong>${pub.value}</div>
+        <div class="savedNoteDate"><strong>On: </strong>${da.value}</div>
+        <button class="delete button" id="del${this.id}">Delete</button>
+        <button class="share button" id="share${this.id}">Share</button>
+    </div>`;
+    });
+  let notesElm = document.getElementsByClassName('allNotes')[0];
+  if (notesObj.length != 0) {
+    notesElm.innerHTML = html;
+  } else {
+    notesElm.innerHTML = `No Notes Are Saved in your local storage.`;
+  }
+}
