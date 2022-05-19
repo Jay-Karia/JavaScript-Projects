@@ -28,126 +28,132 @@ let otherClickSound = new Audio("sounds/otherClick.mp3");
 
 // Functions
 clearTitle.addEventListener("click", () => {
-  clickSound.play();
-  noteTitle.value = "";
+    clickSound.play();
+    noteTitle.value = "";
 });
 
 clearDescription.addEventListener("click", () => {
-  clickSound.play();
-  description.value = "";
-  clickNum = 0;
-  clickNum2 = 0;
-  numClick = 0;
-  ordered.innerHTML = 1;
+    clickSound.play();
+    description.value = "";
+    clickNum = 0;
+    clickNum2 = 0;
+    numClick = 0;
+    ordered.innerHTML = 1;
 });
 
 clearAll.addEventListener("click", () => {
-  otherClickSound.play();
-  noteTitle.value = "";
-  description.value = "";
-  date.value = "";
-  publisher.value = "";
-  clickNum = 0;
-  clickNum2 = 0;
-  numClick = 0;
-  ordered.innerHTML = 1;
+    otherClickSound.play();
+    noteTitle.value = "";
+    description.value = "";
+    date.value = "";
+    publisher.value = "";
+    clickNum = 0;
+    clickNum2 = 0;
+    numClick = 0;
+    ordered.innerHTML = 1;
 });
 
 bullet.addEventListener("click", () => {
-  otherClickSound.play();
-  clickNum += 1;
-  clickNum2 += 1;
-  if (clickNum == 1 && clickNum2 == 1) {
-    description.value += "•";
-  } else {
-    description.value += "\n•";
-  }
+    otherClickSound.play();
+    clickNum += 1;
+    clickNum2 += 1;
+    if (clickNum == 1 && clickNum2 == 1) {
+        description.value += "•";
+    } else {
+        description.value += "\n•";
+    }
 });
 
 arrow.addEventListener("click", () => {
-  otherClickSound.play();
-  clickNum2 += 1;
-  clickNum += 1;
-  if (clickNum2 == 1 && clickNum == 1) {
-    description.value += "‣";
-  } else {
-    description.value += "\n‣";
-  }
+    otherClickSound.play();
+    clickNum2 += 1;
+    clickNum += 1;
+    if (clickNum2 == 1 && clickNum == 1) {
+        description.value += "‣";
+    } else {
+        description.value += "\n‣";
+    }
 });
 
 ordered.addEventListener("click", () => {
-  otherClickSound.play();
-  clickNum += 1;
-  clickNum2 += 1;
-  numClick += 1;
-  if (numClick == 1 && clickNum2 == 1 && clickNum == 1) {
-    ordered.innerHTML = Number(ordered.innerHTML, 10);
-    description.value += ordered.innerHTML;
-  } else {
-    ordered.innerHTML = Number(ordered.innerHTML, 10) + 1;
-    description.value += "\n" + ordered.innerHTML;
-  }
+    otherClickSound.play();
+    clickNum += 1;
+    clickNum2 += 1;
+    numClick += 1;
+    if (numClick == 1 && clickNum2 == 1 && clickNum == 1) {
+        ordered.innerHTML = Number(ordered.innerHTML, 10);
+        description.value += ordered.innerHTML;
+    } else {
+        ordered.innerHTML = Number(ordered.innerHTML, 10) + 1;
+        description.value += "\n" + ordered.innerHTML;
+    }
 });
 
 clearDate.addEventListener("click", () => {
-  clickSound.play();
-  date.value = "";
+    clickSound.play();
+    date.value = "";
 });
 
 clearPub.addEventListener("click", () => {
-  clickSound.play();
-  publisher.value = "";
+    clickSound.play();
+    publisher.value = "";
 });
 
-saveNote.addEventListener("click", function(e) {
-  
-  otherClickSound.play();
-  let notes = localStorage.getItem("notes");
-  if (notes == null) {
-    notesObj = [];
-  } else {
-    notesObj = JSON.parse(notes);
-  }
-  notesObj.push(description.value);
-  localStorage.setItem("notes", JSON.stringify(notesObj));
-  description.value = "";
-  publisher.value = "";
-  date.value = "";
-  noteTitle.value = "";
-//   console.log(notesObj);
-  showNotes();
+saveNote.addEventListener("click", function (e) {
+    otherClickSound.play();
+    let notes = localStorage.getItem("notes");
+    if (notes == null) {
+        notesObj = [];
+    } else {
+        notesObj = JSON.parse(notes);
+    }
+    dataObj = {
+        "title": noteTitle.value,
+        "description": description.value,
+        "publisher": publisher.value,
+        "date": date.value
+    }
+    //   notesObj.push(description.value);
+    notesObj.push(dataObj);
+
+    localStorage.setItem("notes", JSON.stringify(notesObj));
+    showItems();
 });
 
-// Function to show elements from localStorage
-function showNotes() {
-  
-  let notes = localStorage.getItem("notes");
-  if (notes == null) {
-    notesObj = [];
-  } else {
-    notesObj = JSON.parse(notes);
-  }
-  let html = "";
-  notesObj.forEach(function(index) {
-    let title = document.querySelector(".noteTitle");
-    let des = document.querySelector("#description");
-    let da = document.querySelector("#date");
-    let pub = document.querySelector(".publisher");
-    console.log(pub.value);
-      html += `
-        <div class="savedNote">
-        <div class="savedNoteTitle" align="center">${title.value}</div>
-        <textarea name="description" id="savedNoteDescription" cols="30" rows="10" readonly>${des.value}</textarea>
-        <div class="savedNotePublisher"><strong>By: </strong>${pub.value}</div>
-        <div class="savedNoteDate"><strong>On: </strong>${da.value}</div>
-        <button class="delete button" id="del${this.id}">Delete</button>
-        <button class="share button" id="share${this.id}">Share</button>
-    </div>`;
+function showItems(notesObj) {
+    let notes = localStorage.getItem("notes");
+    if (notes == null) {
+        notesObj = [];
+    } else {
+        notesObj = JSON.parse(notes);
+
+    }
+    let html = "";
+    notesObj.forEach(function (e, index) {
+        noteTitle = document.getElementsByClassName("noteTitle")[0];
+        description = document.querySelector("#description");
+        date = document.querySelector("#date");
+        publisher = document.querySelector(".publisher");
+        html +=
+            `<div class="savedNote">
+          <div class="savedNoteTitle" align="center">${e.title}</div>
+          <textarea name="description" id="savedNoteDescription" cols="30" rows="10" readonly>${e.description}</textarea>
+          <div class="savedNotePublisher"><strong>By: </strong>${e.publisher}</div>
+          <div class="savedNoteDate"><strong>On: </strong>${e.date}</div>
+          <button class="delete button" id="del${index})">Delete</button>
+          <button class="share button" id="share${index}">Share</button>
+          </div>`;
     });
-  let notesElm = document.getElementsByClassName('allNotes')[0];
-  if (notesObj.length != 0) {
+    let notesElm = document.getElementsByClassName('allNotes')[0];
     notesElm.innerHTML = html;
-  } else {
-    notesElm.innerHTML = `No Notes Are Saved in your local storage.`;
-  }
+    description.value = "";
+    publisher.value = "";
+    date.value = "";
+    noteTitle.value = "";
 }
+
+// function deleteNote(id, notesObj) {
+//         console.log("delete fired");
+// }
+
+// onclick="deleteNote(${this.id}
