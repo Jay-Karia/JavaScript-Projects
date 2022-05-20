@@ -225,4 +225,6 @@
 .allNotes {
     display: flex;
     align-items: center;
+    width: 100vw;
+    flex-wrap: wrap;
 }
