@@ -36,122 +36,127 @@ let otherClickSound = new Audio("sounds/otherClick.mp3");
 
 // Functions
 clearTitle.addEventListener("click", () => {
-  clickSound.play();
-  noteTitle.value = "";
+    clickSound.play();
+    noteTitle.value = "";
 });
 
 clearDescription.addEventListener("click", () => {
-  clickSound.play();
-  description.value = "";
-  clickNum = 0;
-  clickNum2 = 0;
-  numClick = 0;
-  ordered.innerHTML = 1;
+    clickSound.play();
+    description.value = "";
+    clickNum = 0;
+    clickNum2 = 0;
+    numClick = 0;
+    ordered.innerHTML = 1;
 });
 
 clearAll.addEventListener("click", () => {
-  otherClickSound.play();
-  noteTitle.value = "";
-  description.value = "";
-  date.value = "";
-  publisher.value = "";
-  clickNum = 0;
-  clickNum2 = 0;
-  numClick = 0;
-  ordered.innerHTML = 1;
+    otherClickSound.play();
+    noteTitle.value = "";
+    description.value = "";
+    date.value = "";
+    publisher.value = "";
+    clickNum = 0;
+    clickNum2 = 0;
+    numClick = 0;
+    ordered.innerHTML = 1;
 });
 
 bullet.addEventListener("click", () => {
-  otherClickSound.play();
-  clickNum += 1;
-  clickNum2 += 1;
-  if (clickNum == 1 && clickNum2 == 1) {
-    description.value += "•";
-  } else {
-    description.value += "\n•";
-  }
+    otherClickSound.play();
+    clickNum += 1;
+    clickNum2 += 1;
+    if (clickNum == 1 && clickNum2 == 1) {
+        description.value += "•";
+    } else {
+        description.value += "\n•";
+    }
 });
 
 arrow.addEventListener("click", () => {
-  otherClickSound.play();
-  clickNum2 += 1;
-  clickNum += 1;
-  if (clickNum2 == 1 && clickNum == 1) {
-    description.value += "‣";
-  } else {
-    description.value += "\n‣";
-  }
+    otherClickSound.play();
+    clickNum2 += 1;
+    clickNum += 1;
+    if (clickNum2 == 1 && clickNum == 1) {
+        description.value += "‣";
+    } else {
+        description.value += "\n‣";
+    }
 });
 
 ordered.addEventListener("click", () => {
-  otherClickSound.play();
-  clickNum += 1;
-  clickNum2 += 1;
-  numClick += 1;
-  if ((numClick == 1 && clickNum2 == 1) || clickNum == 1) {
-    ordered.innerHTML = Number(ordered.innerHTML, 10);
-    description.value += ordered.innerHTML;
-  } else {
-    description.value += "\n" + ordered.innerHTML;
-  }
-  ordered.innerHTML = Number(ordered.innerHTML, 10) + 1;
+    otherClickSound.play();
+    clickNum += 1;
+    clickNum2 += 1;
+    numClick += 1;
+    if ((numClick == 1 && clickNum2 == 1) || clickNum == 1) {
+        ordered.innerHTML = Number(ordered.innerHTML, 10);
+        description.value += ordered.innerHTML;
+    } else {
+        description.value += "\n" + ordered.innerHTML;
+    }
+    ordered.innerHTML = Number(ordered.innerHTML, 10) + 1;
 });
 
 clearDate.addEventListener("click", () => {
-  clickSound.play();
-  date.value = "";
+    clickSound.play();
+    date.value = "";
 });
 
 clearPub.addEventListener("click", () => {
-  clickSound.play();
-  publisher.value = "";
+    clickSound.play();
+    publisher.value = "";
 });
 
 saveNote.addEventListener("click", function (e) {
-  otherClickSound.play();
-  globalThis.dataObj;
-  dataObj = {
-    title: noteTitle.value,
-    description: description.value,
-    publisher: publisher.value,
-    date: date.value,
-  };
-  let notes = localStorage.getItem("notes");
-  if (notes == '' || notes == null || notes === '[object Object]') {
-    notesObj = [];
-    dataObj = {};
-  } else {
-    notesObj = JSON.parse(notes);
-  }
+    otherClickSound.play();
+    globalThis.dataObj;
+    let notes = localStorage.getItem("notes");
+    dataObj = {
+        title: noteTitle.value,
+        description: description.value,
+        publisher: publisher.value,
+        date: date.value,
+    };
 
-  titles.push(noteTitle.value);
-  descriptions.push(description.value);
-  pubs.push(publisher.value);
-  dates.push(date.value);
+    titles.push(noteTitle.value);
+    descriptions.push(description.value);
+    pubs.push(publisher.value);
+    dates.push(date.value);
+    try {
+        if (notes == '' || notes == null || notes === '[object Object]' || localStorage.notes == undefined) {
+            let = notesObj = [];
+            dataObj = {};
+        } else {
+            notesObj = JSON.parse(notes);
+        }
+    } catch {localStorage.clear();}
+    
+    
+    
+    notesObj.push(dataObj);
+    localStorage.setItem("notes", JSON.stringify(notesObj));
 
-  notesObj.push(dataObj);
 
-  localStorage.setItem("notes", JSON.stringify(notesObj));
-
-
-  showItems();
+    showItems();
 });
 
 function showItems() {
-  let notes = localStorage.getItem("notes");
-  if (notes == '' || notes == null || notes === '[object Object]') {
-    notesObj = [];
-    dataObj = {};
-  } else {
-    notesObj = JSON.parse(notes);
-  }
-  let html = "";
-  notesObj.forEach(function (e, index) {
-    noteTitle = document.getElementsByClassName("noteTitle")[0];
-    description = document.querySelector("#description");
-    date = document.querySelector("#date");
-    publisher = document.querySelector(".publisher");
-    html += `<div class="savedNote">
+    let notes = localStorage.getItem("notes");
+    try {
+        if (notes == '' || notes == null || notes === '[object Object]') {
+            notesObj = [];
+            dataObj = {};
+        } else {
+            notesObj = JSON.parse(notes);
+        }
+    } catch {localStorage.clear();}
+    let html = "";
+    notesObj.forEach(function (e, index) {
+        noteTitle = document.getElementsByClassName("noteTitle")[0];
+        description = document.querySelector("#description");
+        date = document.querySelector("#date");
+        publisher = document.querySelector(".publisher");
+        html += `<div class="savedNote">
             <div class="savedNoteTitle" align="center">${e.title}</div>
             <textarea name="description" id="savedNoteDescription" cols="30" rows="10" readonly>${e.description}</textarea>
             <div class="savedNotePublisher"><strong>By: </strong>${e.publisher}</div>
@@ -159,40 +164,36 @@ function showItems() {
             <button class="delete button" id="${index})" onclick="deleteNote(this.id, notesObj)">Delete</button>
             <button class="share button" id="${index}">Share</button>
             </div>`;
-  });
-  let notesElm = document.getElementsByClassName("allNotes")[0];
-  notesElm.innerHTML = html;
-  description.value = "";
-  publisher.value = "";
-  date.value = "";
-  noteTitle.value = "";
+    });
+    let notesElm = document.getElementsByClassName("allNotes")[0];
+    notesElm.innerHTML = html;
+    description.value = "";
+    publisher.value = "";
+    date.value = "";
+    noteTitle.value = "";
 }
 
 function deleteNote(id, notesObj) {
-  otherClickSound.play();
-  globalThis.dataObj;
-  let notes = localStorage.getItem("notes");
-  try {
-    if (notes == null || notes == '' || notes === '[object Object]') {
-      notesObj = [];
-      // dataObj = {};
-    } else {
-      notesObj = JSON.parse(notes);
-    }
-  } catch {};
-  let html = "";
-  let index = id.replace(')', "");
-  dataObj = {
-    title: titles[index],
-    description: descriptions[index],
-    publisher: pubs[index],
-    date: dates[index]
-  };
-  console.log(dataObj);
-  notesObj.pop(dataObj);
-  localStorage.setItem("notes", notesObj);
-  notesObj.forEach(function (e, index) {
-    html += `<div class="savedNote">
+    otherClickSound.play();
+    // globalThis.dataObj;
+    let notes = localStorage.getItem("notes");
+    try {
+        if (notes == null || notes == '' || notes === '[object Object]') {
+            notesObj = [];
+            // dataObj = {};
+        } else {
+            notesObj = JSON.parse(notes);
+        }
+    } catch { localStorage.clear();};
+    let html = "";
+    let index = id.replace(')', "");
+    
+    notesObj.splice(index, 1);
+    dataObj = {};
+    localStorage.setItem("notes", notesObj);
+    
+    notesObj.forEach(function (e, index) {
+        html += `<div class="savedNote">
     <div class="savedNoteTitle" align="center">${e.title}</div>
     <textarea name="description" id="savedNoteDescription" cols="30" rows="10" readonly>${e.description}</textarea>
     <div class="savedNotePublisher"><strong>By: </strong>${e.publisher}</div>
@@ -200,9 +201,9 @@ function deleteNote(id, notesObj) {
     <button class="delete button" id="${index})" onclick="deleteNote(this.id, notesObj)">Delete</button>
     <button class="share button" id="${index}">Share</button>
     </div>`;
-  });
-  let notesElm = document.getElementsByClassName("allNotes")[0];
-  notesElm.innerHTML = html;
-  // notesElm.style.display = "none";
-  // console.log(notesObj);
+    });
+    let notesElm = document.getElementsByClassName("allNotes")[0];
+    notesElm.innerHTML = html;
+    // notesElm.style.display = "none";
+    // console.log(notesObj);
 }
