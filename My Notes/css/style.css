@@ -172,7 +172,8 @@
     height: 420px;
     /* display: none; */
     border-radius: 9px;
-    border: 2px solid black
+    border: 2px solid black;
+    box-shadow: 5px 5px 5px 5px rgb(66, 66, 66);
 }
 
 .savedNoteTitle {
