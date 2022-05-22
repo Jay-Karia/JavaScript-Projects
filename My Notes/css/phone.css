@@ -1,0 +1,17 @@
+.addNotes {
+    height: 40vw;
+}
+
+.container {
+    height: 44vw;
+}
+
+.addNotes h1 {
+    width: 200px; 
+    font-size: 20px;
+}
+
+.noteTitle {
+    width: 30vw;
+    height: 4vw;
+}
