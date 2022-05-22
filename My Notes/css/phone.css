@@ -1,1 +1,56 @@
+.container {
+    height: 55rem;
+}
 
+.addNotes {
+    height: 52rem;
+}
+
+.container h1 {
+    width: 80vw;
+    text-align: center;
+    margin-left: 15px;
+    font-size: 1.5rem;
+}
+
+.noteTitle {
+    width: 50vw;
+    font-size: 20px;
+    height: 3rem;
+    align-items: center;
+}
+
+.noteTitle::placeholder {
+    font-size: 1.2rem;
+}
+
+.btn {
+    font-size: 1rem;
+    width: 2.2rem;
+    height: 2rem;
+}
+
+#description {
+    height: 30vw;
+    width: 70vw;
+    /* margin-right: 150px; */
+    margin-left: 0;
+}
+
+.sidePannel {
+    width: 70vw;
+    margin-top: 30px;
+}
+
+.buttons {
+    width: 60vw;
+    /* margin-top: 80px; */
+}
+
+.descriptionContainer {
+    display: flex;
+    width: 90vw;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
