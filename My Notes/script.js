@@ -107,65 +107,96 @@ clearPub.addEventListener("click", () => {
   publisher.value = "";
 });
 
-saveNote.addEventListener("click", () => {
+saveNote.addEventListener("click", function (e) {
   otherClickSound.play();
-  // if (notes == "") {
-  //   dataObj = [];
-  // } else {
-  //   dataObj.push({
-  //     'title': noteTitle.value,
-  //     'description': description.value,
-  //     'publisher': publisher.value,
-  //     'date': date.value,
-  //   })
-  // }
-  // notesObj = [];
-  // notesObj = JSON.stringify(dataObj);
-  // notesObj.push(JSON.stringify(dataObj));
-
+  globalThis.dataObj;
+  let notes = localStorage.getItem("notes");
   dataObj = {
     title: noteTitle.value,
     description: description.value,
     publisher: publisher.value,
     date: date.value,
   };
-  let notes = localStorage.getItem("notes");
-
-  localStorage.setItem("notes", notes + JSON.stringify(dataObj));
-
-  let notesObj = [];
-  notesObj = localStorage.getItem("notes").split("}");
-  console.log(notesObj);
 
   titles.push(noteTitle.value);
   descriptions.push(description.value);
   pubs.push(publisher.value);
   dates.push(date.value);
+  if (notes == "" || notes == null) {
+    notesObj = [];
+  } else {
+    notesObj = JSON.parse(notes);
+  }
 
-  description.value = "";
-  publisher.value = "";
-  date.value = "";
-  noteTitle.value = "";
+  notesObj.push(dataObj);
+  localStorage.setItem("notes", JSON.stringify(notesObj));
 
+  showItems();
+});
+
+function showItems() {
+  // console.log(notesObj);
+  let notes = localStorage.getItem("notes");
+  if (notes == "" || notes == null) {
+    notesObj = [];
+  } else {
+    notesObj = JSON.parse(notes);
+  }
   let html = "";
-
-  let index = notesObj.length;
-
-  for (let i = 0; i <= index-1; i++) {
-    console.log(i);
+  notesObj.forEach(function (e, index) {
     noteTitle = document.getElementsByClassName("noteTitle")[0];
     description = document.querySelector("#description");
     date = document.querySelector("#date");
     publisher = document.querySelector(".publisher");
     html += `<div class="savedNote">
-        <div class="savedNoteTitle" align="center">${titles[i]}</div>
-        <textarea name="description" id="savedNoteDescription" cols="30" rows="10" readonly>${descriptions[i]}</textarea>
-        <div class="savedNotePublisher"><strong>By: </strong>${pubs[i]}</div>
-        <div class="savedNoteDate"><strong>On: </strong>${dates[i]}</div>
-        <button class="delete button" id="${i})" onclick="deleteNote(this.id, notesObj)">Delete</button>
-        <button class="share button" id="${i}">Share</button>
-        </div>`;
-  }
+          <div class="savedNoteTitle" align="center">${e.title}</div>
+          <textarea name="description" id="savedNoteDescription" cols="30" rows="10" readonly>${e.description}</textarea>
+          <div class="savedNotePublisher"><strong>By: </strong>${e.publisher}</div>
+          <div class="savedNoteDate"><strong>On: </strong>${e.date}</div>
+          <button class="delete button" id="${index}" onclick="deleteNote(this.id)">Delete</button>
+          <button class="share button" id="${index}"onclick="copyNote(this.id)">Copy</button>
+          </div>`;
+  });
   let notesElm = document.getElementsByClassName("allNotes")[0];
   notesElm.innerHTML = html;
-});
+  description.value = "";
+  publisher.value = "";
+  date.value = "";
+  noteTitle.value = "";
+}
+
+function deleteNote(id) {
+  otherClickSound.play();
+  let notes = localStorage.getItem("notes");
+  if (notes == "" || notes == null) {
+    notesObj = [];
+  } else {
+    notesObj = JSON.parse(notes);
+  }
+
+  notesObj.splice(id, 1);
+  localStorage.setItem("notes", JSON.stringify(notesObj));
+  console.log(localStorage.notes);
+  let html = "";
+  notesObj.forEach(function (e, index) {
+    noteTitle = document.getElementsByClassName("noteTitle")[0];
+    description = document.querySelector("#description");
+    date = document.querySelector("#date");
+    publisher = document.querySelector(".publisher");
+    html += `<div class="savedNote">
+          <div class="savedNoteTitle" align="center">${e.title}</div>
+          <textarea name="description" id="savedNoteDescription" cols="30" rows="10" readonly>${e.description}</textarea>
+          <div class="savedNotePublisher"><strong>By: </strong>${e.publisher}</div>
+          <div class="savedNoteDate"><strong>On: </strong>${e.date}</div>
+          <button class="delete button" id="${index}" onclick="deleteNote(this.id)">Delete</button>
+          <button class="copy button" id="${index}" onclick="copyNote(this.id)">Copy</button>
+          </div>`;
+  });
+  let notesElm = document.getElementsByClassName("allNotes")[0];
+  notesElm.innerHTML = html;
+}
+
+function copyNote(id) {
+  otherClickSound.play();
+  navigator.clipboard.writeText("Title: " + notesObj[id]['title'] + "\n\nDescription: " + notesObj[id]['description'] + "\nBy: " + notesObj[id]['publisher'] + "\nOn:" + notesObj[id]['date']);
+}
