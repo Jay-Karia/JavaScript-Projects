@@ -1,0 +1,48 @@
+.headers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.buttons button {
+    margin-top: 70px;
+    margin-left: 10px;
+}
+
+.savedNote {
+    margin-left: 0;
+    width: 90vw;
+    height: 83vw;
+}
+
+.savedNoteTitle {
+    font-size:8vw;
+}
+
+#savedNoteDescription {
+    height: 35vw;
+    width: 89.7vw;
+    font-size: 8vw;
+}
+
+.savedNotePublisher {
+    font-size: 5.5vw;
+    height: 6vw;
+}
+
+.savedNoteDate {
+    font-size: 5.5vw;
+    height: 6vw;
+}
+
+.button {
+    width: 20vw;
+    height: 9vw;
+    font-size: 5vw;
+}
+
+.allNotes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
