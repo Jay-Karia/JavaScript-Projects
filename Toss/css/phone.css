@@ -1,0 +1,78 @@
+.compartment2 {
+    transform: scale(-1);
+    width: 100vw;
+    height: 200px;
+    margin-bottom: 400px;
+}
+
+.areaWon {
+    margin-top: 50px;
+}
+
+.compartment1 {
+    width: 100vw;
+    height: 200px;
+}
+
+.tossArea {
+    width: 100vw;
+    height: 300px;
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: 3;
+}
+
+.player1coin {
+    width: 80px;
+    height: 80px;
+    margin: 0;
+    margin-left: 13px;
+}
+
+.player2coin {
+    width: 80px;
+    height: 80px;
+    margin: 0;
+    margin-left: 13px;
+}
+
+.coinToss {
+    width: 100px;
+    height: 100px;
+}
+
+#tokens2 option {
+    transform: scale(-1, 1);
+    mix-blend-mode: difference;
+}
+
+.small {
+    margin-top: 50px;
+    width: 300px;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.areaWon {
+    margin: 0;
+    margin-left: 20px;
+    width: 110px;
+    font-size: 15px;
+}
+
+#tokens {
+    margin: 0;
+    width: 70px;
+}
+
+#tokens2 {
+    margin: 0;
+    width: 70px;
+}
+
+
+.smallerDiv h1 {
+    margin-left: 50px;
+}

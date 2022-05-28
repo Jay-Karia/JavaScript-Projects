@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toss</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="css/phone.css" media="screen and (max-width: 900px)" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="compartment1">
+            <div class="smallerDiv">
+                <h1 class="header">Player 1</h1>
+                <div class="small">
+                    <select id="tokens">
+                        <option value="one">❌</option>
+                        <option value="two">♋</option>
+                        <option value="three">#️⃣</option>
+                        <option value="four">🌗</option>
+                        <option value="five">⚽</option>
+                        <option value="six">🥔</option>
+                        <option value="seven">🌳</option>
+                    </select>
+                    <div class="areaWon">
+                        <h2>You Won</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tossArea">
+            <img src="Images/cancer.png" alt="" class="coin player1coin">
+            <img src="Images/toss.png" alt="Toss Coin" class="coin coinToss">
+            <img src="Images/taurus.png" alt="" class="coin player2coin">
+        </div>
+        <div class="compartment2">
+            <div class="smallerDiv">
+                <h1 class="header">Player 2</h1>
+                <div class="small">
+                    <select id="tokens2">
+                        <option value="one">⭕</option>
+                        <option value="two">♉</option>
+                        <option value="three">🎦</option>
+                        <option value="four">🧀</option>
+                        <option value="five">🍳</option>
+                        <option value="six">🍊</option>
+                        <option value="seven">🍔</option>
+                    </select>
+                    <div class="areaWon">
+                        <h2>You Won</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+
+</html>
