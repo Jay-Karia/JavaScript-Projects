@@ -64,17 +64,17 @@ coin.addEventListener("click", () => {
         // document.getElementsByClassName("coin")[1].src = `Images/${selects[1]}.png`;
         document.getElementsByClassName("coin")[1].src = `Images/toss.png`;
         if (selects[index] == image1) {
-            header = document.getElementsByClassName("header")[0].style.boxShadow = "0 0 10px 10px white";
-            select = document.getElementById('tokens').style.boxShadow = "0 0 10px 10px white";
+            header = document.getElementsByClassName("header")[0].style.boxShadow = "0 0 5px 5px white";
+            select = document.getElementById('tokens').style.boxShadow = "0 0 5px 5px white";
             areaWon = document.getElementsByClassName('areaWon')[0].style.display = "inline-block";
-            areaWon = document.getElementsByClassName('areaWon')[0].style.boxShadow = "0 0 10px 10px white";
-            coin1 = coin1.style.boxShadow = "0 0 10px 10px gray";
+            areaWon = document.getElementsByClassName('areaWon')[0].style.boxShadow = "0 0 5px 5px white";
+            coin1 = coin1.style.boxShadow = "0 0 5px 5px gray";
         } else {
-            header = document.getElementsByClassName("header")[1].style.boxShadow = "0 0 10px 10px white";
-            select = document.getElementById('tokens2').style.boxShadow = "0 0 10px 10px white";
+            header = document.getElementsByClassName("header")[1].style.boxShadow = "0 0 5px 5px white";
+            select = document.getElementById('tokens2').style.boxShadow = "0 0 5px 5px white";
             areaWon = document.getElementsByClassName('areaWon')[1].style.display = "inline-block";
-            areaWon = document.getElementsByClassName('areaWon')[1].style.boxShadow = "0 0 10px 10px white";
-            coin2 = coin2.style.boxShadow = "0 0 10px 10px gray";
+            areaWon = document.getElementsByClassName('areaWon')[1].style.boxShadow = "0 0 5px 5px white";
+            coin2 = coin2.style.boxShadow = "0 0 5px 5px gray";
         }
     }, 6000);
 });
