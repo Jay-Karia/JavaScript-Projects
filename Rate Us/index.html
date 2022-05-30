@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Rate Us</title>
+</head>
+
+<body>
+    <header>
+        <h1>Review Us</h1>
+    </header>
+    <nav>
+        <a class="home">Home</a>
+        <a class="trending">Trending</a>
+    </nav>
+    <div class="container">
+        <div class="project">
+            <h2 class="title">Calculator</h2>
+            <input type="text" name="date" id="date" readonly value="Created On: " class="field">
+            <div class="oneLine">
+                <input type="text" name="url" id="url" readonly value="URL: " class="field">
+                <input type="button" value="Copy" class="copy">
+            </div>
+            <input type="text" id="name" value="" placeholder="Enter your Name Here" class="field space">
+            <div class="oneLine">
+                <input type="text" name="stars" id="stars" placeholder="Rate">
+                <input type="text" name="outOf" id="outOf" value=" / 100" readonly>
+            </div>
+            <textarea name="description" id="description" cols="30" rows="10"
+                placeholder="Your Feedback Here"></textarea>
+            <button class="send copy">Send</button>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
