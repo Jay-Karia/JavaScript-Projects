@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Rate Us</title>
 </head>
 
 <body>
     <header>
-        <h1>Review Us</h1>
+        <h1>Rate Us</h1>
     </header>
     <nav>
         <a class="home">Home</a>
@@ -20,21 +20,90 @@
     <div class="container">
         <div class="project">
             <h2 class="title">Calculator</h2>
-            <input type="text" name="date" id="date" readonly value="Created On: " class="field">
+            <input type="text" name="date" id="date" readonly value="Created On: May 12 2022" class="field">
             <div class="oneLine">
-                <input type="text" name="url" id="url" readonly value="URL: " class="field">
+                <input type="text" name="url" id="url" readonly value="URL: https://TicTacToe.jaysk.repl.co"
+                    class="field">
                 <input type="button" value="Copy" class="copy">
             </div>
-            <input type="text" id="name" value="" placeholder="Enter your Name Here" class="field space">
+            <input type="text" id="name" value="" placeholder="Enter your Name Here" class="field space name">
             <div class="oneLine">
-                <input type="text" name="stars" id="stars" placeholder="Rate">
+                <input type="text" name="stars" class="rate" id="stars" placeholder="Rate">
                 <input type="text" name="outOf" id="outOf" value=" / 100" readonly>
             </div>
-            <textarea name="description" id="description" cols="30" rows="10"
+            <textarea name="description" id="description" class="des" cols="30" rows="10"
                 placeholder="Your Feedback Here"></textarea>
             <button class="send copy">Send</button>
         </div>
+        <div class="project">
+            <h2 class="title title2">TicTacToe</h2>
+            <input type="text" name="date" id="date" readonly value="Created On: May 9 2022" class="field field2">
+            <div class="oneLine">
+                <input type="text" name="url" id="url" readonly value="URL: https://Calculator.jaysk.repl.co"
+                    class="field field2">
+                <input type="button" value="Copy" class="copy copy2">
+            </div>
+            <input type="text" id="name" value="" placeholder="Enter your Name Here" class="field field2 space name">
+            <div class="oneLine">
+                <input type="number" name="stars stars2" class="rate rate2" id="stars" placeholder="Rate" min="0"
+                    max="100">
+                <input type="text" name="outOf" id="outOf" class="outOf2" value=" / 100" readonly>
+            </div>
+            <textarea name="description" id="description" class="des des2" cols="30" rows="10"
+                placeholder="Your Feedback Here"></textarea>
+            <button class="send copy copy2">Send</button>
+        </div>
+        <div class="project">
+            <h2 class="title title3">Cricket Player Stats</h2>
+            <input type="text" name="date" id="date" readonly value="Created On: May 12 2022" class="field field3">
+            <div class="oneLine">
+                <input type="text" name="url" id="url" readonly
+                    value="URL: https://Cricket-Player-Statistics.jaysk.repl.co" class="field field3">
+                <input type="button" value="Copy" class="copy copy3">
+            </div>
+            <input type="text" id="name" value="" placeholder="Enter your Name Here" class="field field3 space name">
+            <div class="oneLine">
+                <input type="text" name="stars" class="rate rate3" id="stars" placeholder="Rate">
+                <input type="text" name="outOf" id="outOf" value=" / 100" readonly>
+            </div>
+            <textarea name="description" id="description" class="des" cols="30" rows="10"
+                placeholder="Your Feedback Here"></textarea>
+            <button class="send copy copy3">Send</button>
+        </div>
+        <div class="project">
+            <h2 class="title title4">My Notes</h2>
+            <input type="text" name="date" id="date" readonly value="Created On: May 22 2022" class="field field4">
+            <div class="oneLine">
+                <input type="text" name="url" id="url" readonly value="URL: https://My-Notes.jaysk.repl.co" class="field field4">
+                <input type="button" value="Copy" class="copy copy4">
+            </div>
+            <input type="text" id="name" value="" placeholder="Enter your Name Here" class="field space name field4">
+            <div class="oneLine">
+                <input type="text" name="stars" class="rate rate4" id="stars" placeholder="Rate">
+                <input type="text" name="outOf" id="outOf" value=" / 100" readonly>
+            </div>
+            <textarea name="description" id="description" class="des" cols="30" rows="10"
+                placeholder="Your Feedback Here"></textarea>
+            <button class="send copy copy4">Send</button>
+        </div>
+        <div class="project">
+            <h2 class="title title5">Toss</h2>
+            <input type="text" name="date" id="date" readonly value="Created On: May 28 2022" class="field field5">
+            <div class="oneLine">
+                <input type="text" name="url" id="url" readonly value="URL: https://Toss.jaysk.repl.co" class="field field5">
+                <input type="button" value="Copy" class="copy copy5">
+            </div>
+            <input type="text" id="name" value="" placeholder="Enter your Name Here" class="field space name field5">
+            <div class="oneLine">
+                <input type="text" name="stars" class="rate rate5" id="stars" placeholder="Rate">
+                <input type="text" name="outOf" id="outOf" value=" / 100" readonly>
+            </div>
+            <textarea name="description" id="description" class="des" cols="30" rows="10"
+                placeholder="Your Feedback Here"></textarea>
+            <button class="send copy copy5">Send</button>
+        </div>
     </div>
 </body>
-<script src="script.js"></script>
+<script src="app.js"></script>
+
 </html>
